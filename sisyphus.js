@@ -106,6 +106,7 @@
 				setInitialOptions: function ( options ) {
 					var defaults = {
 						excludeFields: null,
+						customKey: "",
 						customKeyPrefix: "",
 						timeout: 0,
 						autoRelease: true,
@@ -142,7 +143,7 @@
 					targets = targets || {};
 					var self = this;
 					this.targets = this.targets || [];
-					this.href = location.hostname + location.pathname + location.search;
+					this.href = self.options.customKey ? self.options.customKey : location.hostname + location.pathname + location.search;
 				
 					this.targets = $.merge( this.targets, targets );
 					this.targets = $.unique( this.targets );
